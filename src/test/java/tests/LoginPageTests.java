@@ -23,16 +23,17 @@ public class LoginPageTests {
 	
 	@BeforeClass
 	public void setUp() {
-		 driverManager = DriverManagerFactory.getDriverManager("CHROME");
-		 driver = driverManager.getWebDriver();
-		 driver.get("https://opensource-demo.orangehrmlive.com/");
+		 //driver = driverManager.getWebDriver();
+		 //driver.get("https://opensource-demo.orangehrmlive.com/");
 	}
 	
 	
 	@BeforeTest
 	public void startUp() {
-		 // this.driver = driverManager.getWebDriver();
-		  //driver.get("https://opensource-demo.orangehrmlive.com/");	
+		 driverManager = DriverManagerFactory.getDriverManager("CHROME");
+				 
+		driver = driverManager.getWebDriver();
+		  driver.get("https://opensource-demo.orangehrmlive.com/");	
 	}
 	
 	
@@ -54,7 +55,7 @@ public class LoginPageTests {
 		loginPage = new LoginPage(driver);
 		loginPage.login("Admin", "admin123");
 		//assertEquals(loginPage.getLoginErrorMessage(),"Invalid credentials");	
-		homePage = new DashboardPage();
+		homePage = new DashboardPage(driver);
 		assertEquals(homePage.IsDashboardDisplayed(),true);
 		
 		

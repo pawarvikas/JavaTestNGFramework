@@ -10,7 +10,7 @@ public class DashboardPage {
 	WebDriver driver;
 	utility myutil = new utility();
 	
-	public DashboardPage() {
+	public DashboardPage(WebDriver driver) {
 		// TODO Auto-generated constructor stub
 	this.driver = LoginPageTests.driver;
 	}
